@@ -1,25 +1,14 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './modules/home/home.component';
+import { RouterModule, Routes } from '@angular/router';
+import { RegiaoComponent } from './regiao/regiao.component';
+import { CadastroRegiaoComponent } from './cadastro-regiao/cadastro-regiao.component';
+import { EdicaoRegiaoComponent } from './edicao-regiao/edicao-regiao.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'regiao',
-    loadChildren: () => import('./modules/regiao/regiao.module').then(m => m.RegiaoModule)
-  },
-  { 
-    path: '**', 
-    redirectTo: '/home' 
-  }
+  { path: 'regioes', component: RegiaoComponent },
+  { path: 'cadastro', component: CadastroRegiaoComponent },
+  { path: 'editar/:nome', component: EdicaoRegiaoComponent },
+  { path: '', redirectTo: '/regioes', pathMatch: 'full' }
 ];
 
 @NgModule({
